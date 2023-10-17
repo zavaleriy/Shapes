@@ -11,6 +11,7 @@ namespace Shapes
         private double side1;
         private double side2;
         private double side3;
+        private double perimeter;
         private double semiperimeter; // Полупериметр
 
         public Triangle(double side1, double side2, double side3)
@@ -20,11 +21,11 @@ namespace Shapes
             this.side3 = side3;
         }
 
-        public double Perimeter() => side1 + side2 + side3;
+        public double Perimeter() => perimeter = side1 + side2 + side3;
 
         public double Area()
         {
-            semiperimeter = (side1 + side2 + side3) / 2;
+            semiperimeter = perimeter / 2;
             return Math.Sqrt(semiperimeter * (semiperimeter - side1) * (semiperimeter - side2) * (semiperimeter - side3));
         }
 
