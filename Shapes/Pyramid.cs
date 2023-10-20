@@ -23,11 +23,13 @@ namespace Shapes
 
         public void Out() => Console.WriteLine($"Периметр пирамиды: {Perimeter()}\n" +
             $"Площадь пирамиды: {Math.Round(Area(),2)}\n" +
+            $"Объем: {Math.Round(Volume(), 2)}\n" +
             $"Апофема: {apothem}");
 
         private double Perimeter() => perimeter = amountSides * side;
 
-        //// Площадь боковой поверхности правильной пирамиды через высоту (Это не общая площадь поверхности правильной пирамиды по высоте)
+        //// Площадь боковой поверхности правильной пирамиды через высоту 
+        //// (Это не общая площадь поверхности правильной пирамиды по высоте)
         private double Area()
         {
             // Апофема
@@ -35,6 +37,11 @@ namespace Shapes
 
             // Площадь
             return .5 * perimeter * apothem;
+        }
+
+        private double Volume()
+        {
+            return (height*amountSides*Math.Pow(side, 2))/12*Math.Tan(Math.PI/amountSides);
         }
 
     }
