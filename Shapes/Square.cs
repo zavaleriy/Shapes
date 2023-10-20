@@ -6,18 +6,21 @@ using System.Threading.Tasks;
 
 namespace Shapes
 {
-    internal class Square : Shapes
+    internal class Square : IShape
     {
-        private int width; // Ширина
+        private readonly int width; // Ширина
 
         public Square(int width)
         {
             this.width = width;
         }
 
-        public double Perimeter() => 4 * width;
+        public void Out() => Console.WriteLine($"Периметр квадрата: {Perimeter()}\n" +
+            $"Площадь квадрата: {Area()}");
 
-        public double Area() => width * width;
+        private double Perimeter() => 4 * width;
+
+        private double Area() => width * width;
 
 
     }

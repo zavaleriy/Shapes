@@ -7,17 +7,13 @@ using System.Threading.Tasks;
 
 namespace Shapes
 {
-    internal interface Shapes //// class Shapes
+    internal interface IShape
     {
         /// <summary>
-        /// Получить периметр фигуры
+        /// Вывод периметр и площади фигуры
         /// </summary>
-        double Perimeter(); //// public virtual double Perimeter() => 0;
+        void Out();
 
-        /// <summary>
-        /// Получить площадь фигуры
-        /// </summary>
-        double Area(); //// public virtual double Area() => 0
     }
 
 }
