@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shapes
 {
-    internal class Circle : IShape
+    internal class Circle : Shape
     {
         private readonly double radius;
 
@@ -15,12 +15,12 @@ namespace Shapes
             this.radius = radius;
         }
 
-        public void Out() => Console.WriteLine($"Периметр круга: {Perimeter()}\n" +
+        public new void Out() => Console.WriteLine($"Периметр круга: {Perimeter()}\n" +
             $"Площадь круга: {Area()}");
 
-        private double Perimeter() => 2 * Math.PI * radius;
+        private new double Perimeter() => 2 * Math.PI * radius;
 
-        private double Area() => Math.PI * radius * radius;
+        private new double Area() => Math.PI * radius * radius;
 
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shapes
 {
-    internal class Triangle : IShape
+    internal class Triangle : Shape
     {
         private readonly double side1;
         private readonly double side2;
@@ -20,13 +20,13 @@ namespace Shapes
             this.side3 = side3;
         }
 
-        public void Out() => Console.WriteLine($"{Type()} треугольник\n" +
+        public new void Out() => Console.WriteLine($"{Type()} треугольник\n" +
             $"Периметр треугольника: {Perimeter()}\n" +
             $"Площадь треугольника: {Area()}");
 
-        private double Perimeter() => perimeter = side1 + side2 + side3;
+        private new double Perimeter() => perimeter = side1 + side2 + side3;
 
-        private double Area()
+        private new double Area()
         {
             double semiperimeter = perimeter / 2;
             return Math.Sqrt(semiperimeter * (semiperimeter - side1) * (semiperimeter - side2) * (semiperimeter - side3));

@@ -6,23 +6,22 @@ using System.Threading.Tasks;
 
 namespace Shapes
 {
-    internal class Rectangle : IShape
+    internal class Rectangle : Square
     {
-        private readonly int width; // Ширина
         private readonly int height; // Высота
 
-        public Rectangle(int width, int height)
+        public Rectangle(int width, int height) 
+            : base(width)
         {
-            this.width = width;
             this.height = height;
         }
 
-        public void Out() => Console.WriteLine($"Периметр прямоугольника: {Perimeter()}\n" +
+        public new void Out() => Console.WriteLine($"Периметр прямоугольника: {Perimeter()}\n" +
             $"Площадь прямоугольника: {Area()}");
 
-        private double Perimeter() => 2 * (width + height);
+        private new double Perimeter() => 2 * (width + height);
 
-        private double Area() => height * width;
+        private new double Area() => height * width;
 
 
     }

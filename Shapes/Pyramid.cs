@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shapes
 {
-    internal class Pyramid : IShape
+    internal class Pyramid : Shape
     {
         private readonly double side; // Длина стороны основания
         private readonly double height; // Высота пирамиды
@@ -21,16 +21,16 @@ namespace Shapes
             this.amountSides = amountSides;
         }
 
-        public void Out() => Console.WriteLine($"Периметр пирамиды: {Perimeter()}\n" +
+        public new void Out() => Console.WriteLine($"Периметр пирамиды: {Perimeter()}\n" +
             $"Площадь пирамиды: {Math.Round(Area(),2)}\n" +
             $"Объем: {Math.Round(Volume(), 2)}\n" +
             $"Апофема: {apothem}");
 
-        private double Perimeter() => perimeter = amountSides * side;
+        private new double Perimeter() => perimeter = amountSides * side;
 
         //// Площадь боковой поверхности правильной пирамиды через высоту 
         //// (Это не общая площадь поверхности правильной пирамиды по высоте)
-        private double Area()
+        private new double Area()
         {
             // Апофема
             apothem = Math.Sqrt(Math.Pow(height, 2) + Math.Pow(side / (2 * Math.Tan(Math.PI / amountSides)), 2));
