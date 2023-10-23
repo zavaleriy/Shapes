@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shapes
 {
-    internal class Square : Shape
+    internal class Square
     {
         protected private readonly int width; // Ширина
 
@@ -15,12 +15,12 @@ namespace Shapes
             this.width = width;
         }
 
-        public new void Out() => Console.WriteLine($"Периметр квадрата: {Perimeter()}\n" +
-            $"Площадь квадрата: {Area()}");
+        public void Out() => Console.WriteLine($"Периметр квадрата: {Perimeter(width)}\n" +
+            $"Площадь квадрата: {Area(width)}");
 
-        private new double Perimeter() => 4 * width;
+        private double Perimeter(int width) => 4 * width;
 
-        private new double Area() => width * width;
+        private double Area(int width) => width * width;
 
 
     }

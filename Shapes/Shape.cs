@@ -10,7 +10,7 @@ namespace Shapes
     class Shape
     {
         /// <summary>
-        /// Вывод периметр и площади фигуры
+        /// Вывод периметра и площади фигуры
         /// </summary>
         protected void Out() { }
 

@@ -16,12 +16,12 @@ namespace Shapes
             this.height = height;
         }
 
-        public new void Out() => Console.WriteLine($"Периметр прямоугольника: {Perimeter()}\n" +
-            $"Площадь прямоугольника: {Area()}");
+        public new void Out() => Console.WriteLine($"Периметр прямоугольника: {Perimeter(width, height)}\n" +
+            $"Площадь прямоугольника: {Area(width, height)}");
 
-        private new double Perimeter() => 2 * (width + height);
+        private double Perimeter(int width, int height) => 2 * (width + height);
 
-        private new double Area() => height * width;
+        private double Area(int width, int height) => width * height;
 
 
     }
