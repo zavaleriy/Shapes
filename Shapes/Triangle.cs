@@ -20,7 +20,7 @@ namespace Shapes
             this.side3 = side3;
         }
 
-        public new void Out() => Console.WriteLine($"{Type()} треугольник\n" +
+        public override void Out() => Console.WriteLine($"{Type()} треугольник\n" +
             $"Периметр треугольника: {Perimeter(side1, side2, side3)}\n" +
             $"Площадь треугольника: {Area(side1,side2,side3)}");
 

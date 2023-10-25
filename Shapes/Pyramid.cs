@@ -58,7 +58,7 @@ namespace Shapes
 
         
 
-        public new void Out() => Console.WriteLine($"Площадь пирамиды: {Math.Round(Area(),2)}\n" +
+        public override void Out() => Console.WriteLine($"Площадь пирамиды: {Math.Round(Area(),2)}\n" +
             $"Объем: {Math.Round(Volume(), 2)}");
 
         private new double Area()

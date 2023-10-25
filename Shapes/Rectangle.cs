@@ -16,7 +16,7 @@ namespace Shapes
             this.height = height;
         }
 
-        public new void Out() => Console.WriteLine($"Периметр прямоугольника: {Perimeter(width, height)}\n" +
+        public override void Out() => Console.WriteLine($"Периметр прямоугольника: {Perimeter(width, height)}\n" +
             $"Площадь прямоугольника: {Area(width, height)}");
 
         protected double Perimeter(float width, double height) => 2 * (width + height);

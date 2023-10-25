@@ -15,7 +15,7 @@ namespace Shapes
             this.width = width;
         }
 
-        public new void Out() => Console.WriteLine($"Периметр квадрата: {Perimeter(width)}\n" +
+        public override void Out() => Console.WriteLine($"Периметр квадрата: {Perimeter(width)}\n" +
             $"Площадь квадрата: {Area(width)}");
 
         protected float Perimeter(float width) => 4 * width;

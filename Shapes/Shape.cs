@@ -12,7 +12,7 @@ namespace Shapes
         /// <summary>
         /// Вывод периметра и площади фигуры
         /// </summary>
-        public void Out() => Console.WriteLine($"Периметр: {Perimeter()}" +
+        public virtual void Out() => Console.WriteLine($"Периметр: {Perimeter()}" +
             $"Площадь: {Area()}");
 
         /// <summary>

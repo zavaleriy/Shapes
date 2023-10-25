@@ -16,7 +16,7 @@ namespace Shapes
             this.radius = radius;
         }
 
-        public new void Out() => Console.WriteLine($"Периметр круга: {Perimeter(radius)}\n" +
+        public override void Out() => Console.WriteLine($"Периметр круга: {Perimeter(radius)}\n" +
             $"Площадь круга: {Area(radius)}");
 
         protected double Perimeter(double radius) => 2 * Math.PI * radius;
