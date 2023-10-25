@@ -19,10 +19,10 @@ namespace Shapes
         }
 
         public override void Out() => Console.WriteLine($"Образующая: {side}\n" +
-            $"Площадь пирамиды: {Math.Round(Area(), 2)}\n" +
+            $"Площадь пирамиды: {Math.Round(CalcArea(), 2)}\n" +
            $"Объем: {Math.Round(Volume(), 2)}");
 
-        private new double Area() => Math.PI * radius * (radius + side);
+        private double CalcArea() => Math.PI * radius * (radius + side);
         
         private double Volume() => (double)1 / 3 * Math.PI * radius * radius * height;
 

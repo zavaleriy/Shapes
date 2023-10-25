@@ -15,12 +15,12 @@ namespace Shapes
             this.radius = radius;
         }
 
-        public override void Out() => Console.WriteLine($"Периметр круга: {Perimeter(radius)}\n" +
-            $"Площадь круга: {Area(radius)}");
+        public override void Out() => Console.WriteLine($"Периметр круга: {Perimeter()}\n" +
+            $"Площадь круга: {Area()}");
 
-        protected double Perimeter(double radius) => 2 * Math.PI * radius;
+        protected override double Perimeter() => 2 * Math.PI * radius;
 
-        protected double Area(double radius) => Math.PI * radius * radius;
+        protected override double Area() => Math.PI * radius * radius;
 
     }
 }

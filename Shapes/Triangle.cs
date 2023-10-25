@@ -20,14 +20,14 @@ namespace Shapes
         }
 
         public override void Out() => Console.WriteLine($"{Type()} треугольник\n" +
-            $"Периметр треугольника: {Perimeter(side1, side2, side3)}\n" +
-            $"Площадь треугольника: {Area(side1,side2,side3)}");
+            $"Периметр треугольника: {Perimeter()}\n" +
+            $"Площадь треугольника: {Area()}");
 
-        protected double Perimeter(double side1, double side2, double side3) => side1 + side2 + side3;
+        protected override double Perimeter() => side1 + side2 + side3;
 
-        protected double Area(double side1, double side2, double side3)
+        protected override double Area()
         {
-            double semiperimeter = Perimeter(side1, side2, side3) / 2;
+            double semiperimeter = Perimeter() / 2;
             return Math.Sqrt(semiperimeter * (semiperimeter - side1) * (semiperimeter - side2) * (semiperimeter - side3));
         }
 

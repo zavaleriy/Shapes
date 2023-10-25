@@ -16,16 +16,15 @@ namespace Shapes
         public Pyramid(double height, double side1, double side2, double side3)
             : base(side1, side2, side3)
         {
-            
             this.height = height;
         }
 
-        public override void Out() => Console.WriteLine($"Площадь пирамиды: {Math.Round(Area(),2)}\n" +
+        public override void Out() => Console.WriteLine($"Площадь пирамиды: {Math.Round(CalcArea(),2)}\n" +
             $"Объем: {Math.Round(Volume(), 2)}");
 
-        private new double Area() => Area(side1,side2,side3);
+        private double CalcArea() => Area();
 
-        private double Volume() => (double)1 / 3 * Area(side1, side2, side3) * height;
+        private double Volume() => (double)1 / 3 * Area() * height;
 
 
 

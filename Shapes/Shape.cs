@@ -16,11 +16,11 @@ namespace Shapes
             $"Площадь: {Area()}");
 
         // Получить периметр фигуры
-        protected double Perimeter() => 0;
+        protected virtual double Perimeter() => 0;
 
 
         // Получить площадь фигуры
-        protected double Area() => 0;
+        protected virtual double Area() => 0;
 
     }
 
