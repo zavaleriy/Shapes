@@ -44,12 +44,11 @@ namespace Shapes
         {
             this.height = height;
             this.side = side;
-            radius = Math.Sqrt(side*side - height*height);
+            radius = Math.Round(Math.Sqrt(side*side - height*height), 2);
             foot = "круг";
         }
 
         // Треугольник
-
         public Pyramid(double height, double side1, double side2, double side3)
             : base(side1, side2, side3)
         {
@@ -59,39 +58,8 @@ namespace Shapes
 
         
 
-        public new void Out() => Console.WriteLine($"Периметр пирамиды: {Perimeter()}\n" +
-            $"Площадь пирамиды: {Math.Round(Area(),2)}\n" +
+        public new void Out() => Console.WriteLine($"Площадь пирамиды: {Math.Round(Area(),2)}\n" +
             $"Объем: {Math.Round(Volume(), 2)}");
-
-        private new double Perimeter()
-        {
-            double perimeter = 0;
-            switch (foot)
-            {
-                case "квадрат":
-                    double sidePerimeter = 2 * width + 2 * Math.Sqrt(2) * width;
-                    perimeter = Perimeter(width: width) + (4 * sidePerimeter);
-                    break;
-
-                case "прямоугольник":
-                    double footPerimeter = Perimeter(width, length);
-                    double sideLength = Math.Sqrt(Math.Pow(length / 2, 2) + Math.Pow(height, 2)); // Длина бокового ребра пирамиды
-                    perimeter = footPerimeter + 4 * sideLength;
-                    break;
-
-                case "круг":
-                    Console.WriteLine($"Радиус: {radius,2}");
-                    perimeter = Perimeter(radius: radius) + side;
-                    break;
-
-                case "треугольник":
-                    perimeter = Perimeter(side1, side2, side3) + 3 * height;
-                    break;
-            }
-
-            return perimeter;
-
-        }
 
         private new double Area()
         {
@@ -105,15 +73,17 @@ namespace Shapes
                     break;
 
                 case "прямоугольник":
-                    area = Area(width, length) * height / 3; // TODO : переделать
+                    double temp = width * Math.Sqrt(Math.Pow(length / 2, 2) + Math.Pow(height, 2)) + length * Math.Sqrt(Math.Pow(width / 2, 2) + Math.Pow(height, 2));
+                    area = Area(width, length) + temp;
                     break;
 
                 case "круг":
+                    Console.WriteLine($"Радиус: {radius,2}");
                     area = Math.PI * radius * (radius + side);
                     break;
 
                 case "треугольник":
-                    area = Area(side1, side2, side3) * height / 3;
+                    area = Area(side1,side2,side3);
                     break;
             }
             return area;
@@ -129,7 +99,7 @@ namespace Shapes
                     break;
 
                 case "прямоугольник":
-                    volume = (double) 1 / 3 * Area(width, length) * height; // TODO : переделать
+                    volume = (double) 1 / 3 * Area(width, length) * height;
                     break;
 
                 case "круг":
@@ -137,7 +107,7 @@ namespace Shapes
                     break;
 
                 case "треугольник":
-                    volume = (double) 1 / 3 * Area(side1, side2, side3) * height; // TODO : переделать
+                    volume = (double) 1 / 3 * Area(side1, side2, side3) * height;
                     break;
             }
             return volume;
