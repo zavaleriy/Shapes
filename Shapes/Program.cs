@@ -94,34 +94,34 @@
                         switch (Console.ReadLine())
                         {
                             case "1":
-                                Console.Write("Введите ширину квадрата: "); float widthSquare = Convert.ToSingle(Console.ReadLine());
+                                Console.Write("Введите ширину квадрата: "); double widthSquare = Convert.ToSingle(Console.ReadLine());
 
                                 Console.Clear();
 
-                                Pyramid squarePyramid = new Pyramid(heightP, widthSquare);
+                                QuadPyramid squarePyramid = new QuadPyramid(heightP, widthSquare);
                                 squarePyramid.Out();
 
                                 break;
 
                             case "2":
 
-                                Console.Write("Введите ширину прямоугольника: "); float widthRectangle = Convert.ToSingle(Console.ReadLine());
+                                Console.Write("Введите ширину прямоугольника: "); double widthRectangle = Convert.ToSingle(Console.ReadLine());
                                 Console.Write("Введите высоту прямоугольника: "); double lengthRectangle = Convert.ToDouble(Console.ReadLine());
 
                                 Console.Clear();
 
-                                Pyramid rectanglePyramid = new Pyramid(heightP, widthRectangle, length: lengthRectangle);
+                                QuadPyramid rectanglePyramid = new QuadPyramid(heightP, widthRectangle, lengthRectangle);
                                 rectanglePyramid.Out();
 
                                 break;
 
                             case "3":
 
-                                Console.Write("Введите длину образующей: "); double sidePyramid = Convert.ToDouble(Console.ReadLine());
+                                Console.Write("Введите радиус: "); double radiusPyramid = Convert.ToDouble(Console.ReadLine());
 
                                 Console.Clear();
 
-                                Pyramid circlePyramid = new Pyramid(heightP, side: sidePyramid);
+                                CirclePyramid circlePyramid = new CirclePyramid(heightP, radiusPyramid);
                                 circlePyramid.Out();
 
                                 break;

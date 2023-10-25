@@ -8,9 +8,9 @@ namespace Shapes
 {
     internal class Rectangle : Square
     {
-        protected private readonly double height; // Высота
+        protected readonly double height; // Высота
 
-        public Rectangle(float width, double height) 
+        public Rectangle(double width, double height) 
             : base(width)
         {
             this.height = height;
@@ -19,9 +19,9 @@ namespace Shapes
         public override void Out() => Console.WriteLine($"Периметр прямоугольника: {Perimeter(width, height)}\n" +
             $"Площадь прямоугольника: {Area(width, height)}");
 
-        protected double Perimeter(float width, double height) => 2 * (width + height);
+        protected double Perimeter(double width, double height) => 2 * (width + height);
 
-        protected double Area(float width, double height) => width * height;
+        protected double Area(double width, double height) => width * height;
 
 
     }

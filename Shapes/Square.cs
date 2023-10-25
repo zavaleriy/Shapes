@@ -8,9 +8,9 @@ namespace Shapes
 {
     internal class Square : Shape
     {
-        protected private readonly float width; // Ширина
+        protected readonly double width; // Ширина
 
-        public Square(float width)
+        public Square(double width)
         {
             this.width = width;
         }
@@ -18,9 +18,9 @@ namespace Shapes
         public override void Out() => Console.WriteLine($"Периметр квадрата: {Perimeter(width)}\n" +
             $"Площадь квадрата: {Area(width)}");
 
-        protected float Perimeter(float width) => 4 * width;
+        protected double Perimeter(double width) => 4 * width;
 
-        protected float Area(float width) => width * width;
+        protected double Area(double width) => width * width;
 
 
     }

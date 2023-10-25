@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace Shapes
 {
-    internal class Circle : Rectangle
+    internal class Circle : Shape
     {
-        protected private readonly double radius;
+        protected readonly double radius;
 
         public Circle(double radius)
-            : base(0,0)
         {
             this.radius = radius;
         }

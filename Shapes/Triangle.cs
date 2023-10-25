@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace Shapes
 {
-    internal class Triangle : Circle
+    internal class Triangle : Shape
     {
-        protected private readonly double side1;
-        protected private readonly double side2;
-        protected private readonly double side3;
+        protected readonly double side1;
+        protected readonly double side2;
+        protected readonly double side3;
 
         public Triangle(double side1, double side2, double side3)
-            : base(0)
         {
             this.side1 = side1;
             this.side2 = side2;
