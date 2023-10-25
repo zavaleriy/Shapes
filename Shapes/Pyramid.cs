@@ -1,48 +1,149 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Shapes
 {
-    internal class Pyramid : Shape
+    internal class Pyramid : Triangle
     {
-        private readonly double side; // Длина стороны основания
-        private readonly double height; // Высота пирамиды
-        private readonly double amountSides; // Количества сторон пирамиды
-        private double perimeter;
-        private double apothem;
+        private new readonly double height; // Высота пирамиды
+        private readonly string? foot; // Основание пирамиды
 
-        public Pyramid(double side, double height, double amountSides)
+        // Квадрат
+        private new readonly float width;
+
+        public Pyramid(double height, float width)
+            : base(0, 0, 0)
         {
-            this.side = side;
             this.height = height;
-            this.amountSides = amountSides;
+            this.width = width;
+            foot = "квадрат";
         }
+
+        // Прямоугольник
+        private readonly double length;
+
+        public Pyramid(double height, float width, double length)
+            : base(0, 0, 0)
+        {
+            this.height = height;
+            this.width = width;
+            this.length = length;
+            foot = "прямоугольник";
+        }
+
+        // Круг
+        private readonly double side;
+        private new readonly double radius;
+
+        public Pyramid(double height, double side)
+            : base(0, 0, 0)
+        {
+            this.height = height;
+            this.side = side;
+            radius = Math.Sqrt(side*side - height*height);
+            foot = "круг";
+        }
+
+        // Треугольник
+
+        public Pyramid(double height, double side1, double side2, double side3)
+            : base(side1, side2, side3)
+        {
+            this.height = height;
+            foot = "треугольник";
+        }
+
+        
 
         public new void Out() => Console.WriteLine($"Периметр пирамиды: {Perimeter()}\n" +
             $"Площадь пирамиды: {Math.Round(Area(),2)}\n" +
-            $"Объем: {Math.Round(Volume(), 2)}\n" +
-            $"Апофема: {apothem}");
+            $"Объем: {Math.Round(Volume(), 2)}");
 
-        private new double Perimeter() => perimeter = amountSides * side;
+        private new double Perimeter()
+        {
+            double perimeter = 0;
+            switch (foot)
+            {
+                case "квадрат":
+                    double sidePerimeter = 2 * width + 2 * Math.Sqrt(2) * width;
+                    perimeter = Perimeter(width: width) + (4 * sidePerimeter);
+                    break;
 
-        //// Площадь боковой поверхности правильной пирамиды через высоту 
-        //// (Это не общая площадь поверхности правильной пирамиды по высоте)
+                case "прямоугольник":
+                    double footPerimeter = Perimeter(width, length);
+                    double sideLength = Math.Sqrt(Math.Pow(length / 2, 2) + Math.Pow(height, 2)); // Длина бокового ребра пирамиды
+                    perimeter = footPerimeter + 4 * sideLength;
+                    break;
+
+                case "круг":
+                    Console.WriteLine($"Радиус: {radius,2}");
+                    perimeter = Perimeter(radius: radius) + side;
+                    break;
+
+                case "треугольник":
+                    perimeter = Perimeter(side1, side2, side3) + 3 * height;
+                    break;
+            }
+
+            return perimeter;
+
+        }
+
         private new double Area()
         {
-            // Апофема
-            apothem = Math.Sqrt(Math.Pow(height, 2) + Math.Pow(side / (2 * Math.Tan(Math.PI / amountSides)), 2));
+            double area = 0;
+            switch (foot)
+            {
+                case "квадрат":
+                    double areaFoot = Area(width: width);
+                    double apothem = Math.Sqrt(Math.Pow(height, 2) + Math.Pow(width / (2 * Math.Tan(Math.PI / 4)), 2));
+                    area = areaFoot + (4 * width * apothem / 2);
+                    break;
 
-            // Площадь
-            return .5 * perimeter * apothem;
+                case "прямоугольник":
+                    area = Area(width, length) * height / 3; // TODO : переделать
+                    break;
+
+                case "круг":
+                    area = Math.PI * radius * (radius + side);
+                    break;
+
+                case "треугольник":
+                    area = Area(side1, side2, side3) * height / 3;
+                    break;
+            }
+            return area;
         }
 
         private double Volume()
         {
-            return (height*amountSides*Math.Pow(side, 2))/12*Math.Tan(Math.PI/amountSides);
+            double volume = 0;
+            switch (foot)
+            {
+                case "квадрат":
+                    volume = (double) 1 / 3 * Area(width: width) * height;
+                    break;
+
+                case "прямоугольник":
+                    volume = (double) 1 / 3 * Area(width, length) * height; // TODO : переделать
+                    break;
+
+                case "круг":
+                    volume = (double) 1 / 3 * Math.PI * radius * radius * height;
+                    break;
+
+                case "треугольник":
+                    volume = (double) 1 / 3 * Area(side1, side2, side3) * height; // TODO : переделать
+                    break;
+            }
+            return volume;
         }
+
+
 
     }
 }

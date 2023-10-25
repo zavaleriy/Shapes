@@ -84,13 +84,61 @@
                     case ConsoleKey.D5:
                     case ConsoleKey.NumPad5:
                         Console.Clear();
-                        Console.Write("Введите длину стороны основания: "); double sideP = Convert.ToDouble(Console.ReadLine());
                         Console.Write("Введите высоту пирамиды: "); double heightP = Convert.ToDouble(Console.ReadLine());
-                        Console.Write("Введите количество сторон пирамиды: "); double amountSides = Convert.ToDouble(Console.ReadLine());
-                        Pyramid pyramid = new Pyramid(sideP, heightP, amountSides);
-                        Console.Clear();
+                        Console.WriteLine("\n1. Квадрат\n" +
+                            "2. Прямоугольник\n" +
+                            "3. Круг\n" +
+                            "4. Треугольник\n");
+                        Console.Write("Выберите основание пирамиды: ");
+                        
+                        switch (Console.ReadLine())
+                        {
+                            case "1":
+                                Console.Write("Введите ширину квадрата: "); float widthSquare = Convert.ToSingle(Console.ReadLine());
 
-                        pyramid.Out();
+                                Console.Clear();
+
+                                Pyramid squarePyramid = new Pyramid(heightP, widthSquare);
+                                squarePyramid.Out();
+
+                                break;
+
+                            case "2":
+
+                                Console.Write("Введите ширину прямоугольника: "); float widthRectangle = Convert.ToSingle(Console.ReadLine());
+                                Console.Write("Введите высоту прямоугольника: "); double lengthRectangle = Convert.ToDouble(Console.ReadLine());
+
+                                Console.Clear();
+
+                                Pyramid rectanglePyramid = new Pyramid(heightP, widthRectangle, length: lengthRectangle);
+                                rectanglePyramid.Out();
+
+                                break;
+
+                            case "3":
+
+                                Console.Write("Введите длину образующей: "); double sidePyramid = Convert.ToDouble(Console.ReadLine());
+
+                                Console.Clear();
+
+                                Pyramid circlePyramid = new Pyramid(heightP, side: sidePyramid);
+                                circlePyramid.Out();
+
+                                break;
+
+                            case "4":
+
+                                Console.Write("Введите сторону треугольника A: "); double sideAPyramid = Convert.ToDouble(Console.ReadLine());
+                                Console.Write("Введите сторону треугольника B: "); double sideBPyramid = Convert.ToDouble(Console.ReadLine());
+                                Console.Write("Введите сторону треугольника C: "); double sideCPyramid = Convert.ToDouble(Console.ReadLine());
+
+                                Console.Clear();
+
+                                Pyramid trianglePyramid = new Pyramid(heightP, sideAPyramid, sideBPyramid, sideCPyramid);
+                                trianglePyramid.Out();
+
+                                break;
+                        }
 
                         Console.Write("\nНажмите ENTER чтобы продолжить");
                         Console.ReadLine();

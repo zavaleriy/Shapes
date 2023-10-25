@@ -6,21 +6,22 @@ using System.Threading.Tasks;
 
 namespace Shapes
 {
-    internal class Circle : Shape
+    internal class Circle : Rectangle
     {
-        private readonly double radius;
+        protected private readonly double radius;
 
         public Circle(double radius)
+            : base(0,0)
         {
             this.radius = radius;
         }
 
-        public new void Out() => Console.WriteLine($"Периметр круга: {Perimeter()}\n" +
-            $"Площадь круга: {Area()}");
+        public new void Out() => Console.WriteLine($"Периметр круга: {Perimeter(radius)}\n" +
+            $"Площадь круга: {Area(radius)}");
 
-        private new double Perimeter() => 2 * Math.PI * radius;
+        protected double Perimeter(double radius) => 2 * Math.PI * radius;
 
-        private new double Area() => Math.PI * radius * radius;
+        protected double Area(double radius) => Math.PI * radius * radius;
 
     }
 }
