@@ -15,12 +15,12 @@ namespace Shapes
             this.width = width;
         }
 
-        public override void Out() => Console.WriteLine($"Периметр квадрата: {Perimeter(width)}\n" +
-            $"Площадь квадрата: {Area(width)}");
+        public override void Out() => Console.WriteLine($"Периметр квадрата: {Perimeter()}\n" +
+            $"Площадь квадрата: {Area()}");
 
-        protected double Perimeter(double width) => 4 * width;
+        protected override double Perimeter() => 4 * width;
 
-        protected double Area(double width) => width * width;
+        protected override double Area() => width * width;
 
 
     }

@@ -15,11 +15,15 @@ namespace Shapes
         public virtual void Out() => Console.WriteLine($"Периметр: {Perimeter()}" +
             $"Площадь: {Area()}");
 
-        // Получить периметр фигуры
+        /// <summary>
+        /// Получить периметр фигуры
+        /// </summary>
         protected virtual double Perimeter() => 0;
 
 
-        // Получить площадь фигуры
+        /// <summary>
+        /// Получить площадь фигуры
+        /// </summary>
         protected virtual double Area() => 0;
 
     }

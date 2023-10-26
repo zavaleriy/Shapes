@@ -98,7 +98,7 @@
 
                                 Console.Clear();
 
-                                QuadPyramid squarePyramid = new QuadPyramid(heightP, widthSquare);
+                                QuadPyramid squarePyramid = new QuadPyramid(heightP, widthSquare, widthSquare);
                                 squarePyramid.Out();
 
                                 break;

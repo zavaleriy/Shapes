@@ -9,10 +9,8 @@ namespace Shapes
 {
     internal class Pyramid : Triangle
     {
-        private readonly double height; // Высота пирамиды
+        private readonly double height;
 
-
-        // Треугольник
         public Pyramid(double height, double side1, double side2, double side3)
             : base(side1, side2, side3)
         {
